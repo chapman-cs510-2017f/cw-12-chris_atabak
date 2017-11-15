@@ -1,6 +1,6 @@
 # CS510 CW 12
 
-**Author(s):** **Kris - Atabak**
+**Author(s):** **Chris - Atabak**
 
 [![Build Status](https://travis-ci.org/chapman-cs510-2017f/cw-12-chris_atabak.svg?branch=master)](https://travis-ci.org/chapman-cs510-2017f/cw-12-chris_atabak)
 
@@ -60,4 +60,4 @@ I pledge that all the work in this repository is my own with only the following 
 
 Signed,
 
-**Kris - Atabak**
+**Chris - Atabak**
