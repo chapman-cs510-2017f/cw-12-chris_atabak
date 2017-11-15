@@ -56,4 +56,23 @@ void print_vec(const Vec2 &wr)
     cout << "2Vector : [" << wr.x << ", " << wr.y << "]" << endl;
 }
 
+
+Vec3 operator+(const Vec3 &wr, const Vec3 &wv)
+{
+    Vec3 u = Vec3();
+    u.x = wr.x + wv.x;
+    u.y = wr.y + wv.y;
+    u.z = wr.z + wv.z;
+    return(u);
+}
+
+Vec2 operator+(const Vec2 &wr, const Vec2 &wv)
+{
+    Vec2 u = Vec2();
+    u.x = wr.x + wv.x;
+    u.y = wr.y + wv.y;
+    return(u);
+}
+
+
 //TODO : Implement overloaded + operators
