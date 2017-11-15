@@ -65,6 +65,7 @@ void Stack::push(SValue val)
     // automatically deallocated, since it is a unique_ptr
     // Again, we must move the new pointer uniquely to become the new head
     this->head = std::move(new_node_ptr);
+    this->depth++;
 }
 
 
@@ -85,6 +86,7 @@ SValue Stack::pop()
     this->head = std::move(this->head->next);
     // Again, we allow the unique_ptr to the old head to be deallocated
     // automatically as it goes out of scope
+    this->depth--;
     return val;
 }
 
@@ -92,14 +94,12 @@ SValue Stack::pop()
 // TODO: Implementation of empty method
 bool Stack::empty() const
  {
-  if (this->head == nullptr){
-    return true;
-  }else{
-  return false;
+ if( this->depth==0){
+     return true;
+ }else{
+     return false;
  }
-}
-
-
+ }
 void print(SValue val){
     std::cout<< val;
 }

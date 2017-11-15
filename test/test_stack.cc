@@ -9,6 +9,7 @@ int main(void) {
     s.push(1);
     s.push(2);
     s.push(3);
+    s.push(4);
     std::cout << "Popping items off the stack and printing:" << std::endl;
     val = s.pop();
     print(val);
@@ -27,6 +28,6 @@ int main(void) {
     s.push(5);
     s.push(6);
     std::cout << "Printing the stack:" << std::endl;
-    //s.print();
+    s.print();
     return 0;
 }
