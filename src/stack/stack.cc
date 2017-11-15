@@ -107,8 +107,8 @@ void print(SValue val){
 void Stack::print() const
 {
   Node *temp = this->head.get();
-  while(temp->next){
-    std::cout << temp->data;
+  while(temp){
+    std::cout << temp->data<< std::endl ;
     temp = temp->next.get();
   }
 
