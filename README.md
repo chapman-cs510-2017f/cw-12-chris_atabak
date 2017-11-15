@@ -1,6 +1,6 @@
 # CS510 CW 12
 
-**Author(s):** **Kris - Atabak **
+**Author(s):** **Kris - Atabak**
 
 [![Build Status](https://travis-ci.org/chapman-cs510-2017f/cw-12-chris_atabak.svg?branch=master)](https://travis-ci.org/chapman-cs510-2017f/cw-12-chris_atabak)
 
