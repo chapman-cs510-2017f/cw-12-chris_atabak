@@ -1,6 +1,6 @@
 #include <iostream>
 #include "stack.h"
-
+#include <stdexcept>
 // TODO: Implementation of print for SValue
 // void print(SValue) {}
 
@@ -21,7 +21,7 @@ std::size_t Stack::size() const
 {
     // Recall that this is a keyword representing a pointer
     // to the current instance of Stack. Since Stack is a class,
-    // it is a fancy struct, so the C notation of -> works to 
+    // it is a fancy struct, so the C notation of -> works to
     // extract the size field from the class instance properly
     return this->depth;
 }
@@ -32,7 +32,7 @@ void Stack::push(SValue val)
 {
     // Create a unique_ptr named "new_node_ptr" to manage memory
     // First create a pointer to a zero-allocated Node struct using
-    // the "new" keyword. See following equivalence: 
+    // the "new" keyword. See following equivalence:
     //    C++: Node *n = new Node();
     //    C  : Node *n = (Node *)calloc(1, sizeof(Node));
     //
@@ -41,7 +41,7 @@ void Stack::push(SValue val)
     //    C++: delete n;
     //    C  : free(n);
     //
-    // However, here we wrap this new block of memory inside a unique_ptr 
+    // However, here we wrap this new block of memory inside a unique_ptr
     // The unique_ptr then manages the deallocation for us - if the
     // pointer ever goes out of scope, then unique_ptr automatically calls
     // delete on the corresponding block of memory
@@ -69,11 +69,12 @@ void Stack::push(SValue val)
 
 
 // Implementation of pop method
-SValue Stack::pop() 
+SValue Stack::pop()
 {
     // Use the empty method to check whether Stack is empty
     if (this->empty())
     {
+        throw std::length_error(" Empty Stack");
         // TODO: Fix this by throwing an exception properly
         // https://www.tutorialspoint.com/cplusplus/cpp_exceptions_handling.htm
         return -1;
@@ -83,14 +84,32 @@ SValue Stack::pop()
     // We move the unique pointer of the old next to become the new head
     this->head = std::move(this->head->next);
     // Again, we allow the unique_ptr to the old head to be deallocated
-    // automatically as it goes out of scope 
+    // automatically as it goes out of scope
     return val;
 }
 
 
 // TODO: Implementation of empty method
-// bool Stack::empty() const {}
+bool Stack::empty() const
+ {
+  if (this->head == nullptr){
+    return true;
+  }else{
+  return false;
+ }
+}
 
 
+void print(SValue val){
+    std::cout<< val;
+}
 // TODO: Implementation of print method
-// void Stack::print() {}
+void Stack::print() const
+{
+  Node *temp = this->head.get();
+  while(temp->next){
+    std::cout << temp->data;
+    temp = temp->next.get();
+  }
+
+}
